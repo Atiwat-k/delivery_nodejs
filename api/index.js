@@ -1,4 +1,3 @@
-// index.js
 const express = require('express');
 const app = express();
 
@@ -9,7 +8,7 @@ const userRoutes = require('./user');
 app.use('/api', userRoutes);
 
 // รันเซิร์ฟเวอร์
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // ใช้พอร์ตจากตัวแปรสภาพแวดล้อมหรือใช้พอร์ต 3000
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
