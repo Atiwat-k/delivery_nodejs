@@ -1,13 +1,10 @@
 const express = require('express');
 const app = express();
+const userRoutes = require('./user'); // ตรวจสอบให้แน่ใจว่าเส้นทางถูกต้อง
 
-// นำเข้า API จาก user.js
-const userRoutes = require('./user');
-
-// ใช้ API จาก user.js ที่เส้นทางเริ่มต้น (เช่น /api)
+app.use(express.json()); // สำหรับรับข้อมูล JSON
 app.use('/api', userRoutes);
 
-// รันเซิร์ฟเวอร์
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   if (err) {
