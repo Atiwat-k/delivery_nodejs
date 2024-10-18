@@ -8,7 +8,11 @@ const userRoutes = require('./user');
 app.use('/api', userRoutes);
 
 // รันเซิร์ฟเวอร์
-const PORT = process.env.PORT || 3000; // ใช้พอร์ตจากตัวแปรสภาพแวดล้อมหรือใช้พอร์ต 3000
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (err) => {
+  if (err) {
+    console.error('Error starting the server:', err);
+  } else {
+    console.log(`Server is running on port ${PORT}`);
+  }
 });
